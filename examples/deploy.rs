@@ -1,14 +1,14 @@
 use anybuf::Anybuf;
-use contract::{
-    msg::{InstantiateMsg, MigrateMsg},
-    state::Config,
-    Contract, ContractExecuteMsgFns, ContractQueryMsgFns,
-};
 use cosmos_sdk_proto::Any;
 use cw_orch::{
     anyhow::{self, Ok},
     daemon::{networks, TxSender},
     prelude::*,
+};
+use cw_random::{
+    msg::{InstantiateMsg, MigrateMsg},
+    state::Config,
+    Contract, ContractExecuteMsgFns, ContractQueryMsgFns,
 };
 use dotenv;
 use pretty_env_logger;

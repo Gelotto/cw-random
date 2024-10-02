@@ -1,4 +1,6 @@
 use crate::error::ContractError;
+use crate::execute::generate::exec_generate;
+use crate::execute::request::exec_request;
 use crate::execute::set_config::exec_set_config;
 use crate::msg::{ExecuteMsg, InstantiateMsg, MigrateMsg, QueryMsg};
 use crate::query::config::query_config;
@@ -7,7 +9,7 @@ use cosmwasm_std::{entry_point, to_json_binary, Env};
 use cosmwasm_std::{Binary, Deps, DepsMut, MessageInfo, Response};
 use cw2::set_contract_version;
 
-const CONTRACT_NAME: &str = "crates.io:cw-contract";
+const CONTRACT_NAME: &str = "crates.io:cw-random";
 const CONTRACT_VERSION: &str = env!("CARGO_PKG_VERSION");
 
 #[entry_point]
@@ -32,6 +34,8 @@ pub fn execute(
     let ctx = ExecuteContext { deps, env, info };
     match msg {
         ExecuteMsg::SetConfig(config) => exec_set_config(ctx, config),
+        ExecuteMsg::Request(msg) => exec_request(ctx, msg),
+        ExecuteMsg::Generate(msg) => exec_generate(ctx, msg),
     }
 }
 

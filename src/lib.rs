@@ -1,3 +1,4 @@
+pub mod client;
 #[cfg(not(feature = "library"))]
 pub mod contract;
 pub mod error;
