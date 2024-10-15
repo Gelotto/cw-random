@@ -11,6 +11,12 @@ pub enum ContractError {
 
   #[error("ValidationError: {reason:?}")]
   ValidationError { reason: String },
+
+  #[error("InvalidHeight: {current_height:?} >= {requested_height:?}")]
+  InvalidHeight {
+    current_height: u64,
+    requested_height: u64,
+  },
 }
 
 impl From<ContractError> for StdError {
