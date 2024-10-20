@@ -28,7 +28,7 @@ pub fn main() -> anyhow::Result<()> {
     contract.upload_if_needed()?;
 
     if contract.address().is_err() {
-        contract.instantiate(&InstantiateMsg { config: Config {} }, Some(&sender), None)?;
+        contract.instantiate(&InstantiateMsg { config: Config {}, operator: None }, Some(&sender), None)?;
 
         let _ = chain.commit_any::<Any>(
             vec![juno_feeshare_msg(

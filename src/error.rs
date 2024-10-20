@@ -17,6 +17,9 @@ pub enum ContractError {
     current_height: u64,
     requested_height: u64,
   },
+
+  #[error("EmptyRequest: {reason:?}")]
+  EmptyRequest { reason: String },
 }
 
 impl From<ContractError> for StdError {

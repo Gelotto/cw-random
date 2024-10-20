@@ -20,13 +20,13 @@ pub enum JobResult {
     U32(Vec<u32>),
     U64(Vec<Uint64>),
     U128(Vec<Uint128>),
-    U256(Vec<Uint256>),
+    // U256(Vec<Uint256>),
     I8(Vec<i8>),
     I16(Vec<i16>),
     I32(Vec<i32>),
     I64(Vec<Int64>),
     I128(Vec<Int128>),
-    I256(Vec<Int256>),
+    // I256(Vec<Int256>),
     Choice(Vec<String>),
 }
 

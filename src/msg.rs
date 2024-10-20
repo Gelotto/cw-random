@@ -7,6 +7,7 @@ use crate::{responses::ConfigResponse, state::Config};
 #[cw_serde]
 pub struct InstantiateMsg {
     pub config: Config,
+    pub operator: Option<Addr>
 }
 
 #[cw_serde]
@@ -67,11 +68,11 @@ pub enum Job {
         max: Option<Uint128>,
         n: u16,
     },
-    U256 {
-        min: Option<Uint256>,
-        max: Option<Uint256>,
-        n: u16,
-    },
+    // U256 {
+    //     min: Option<Uint256>,
+    //     max: Option<Uint256>,
+    //     n: u16,
+    // },
     I8 {
         min: Option<i8>,
         max: Option<i8>,
@@ -97,11 +98,11 @@ pub enum Job {
         max: Option<Int128>,
         n: u16,
     },
-    I256 {
-        min: Option<Int256>,
-        max: Option<Int256>,
-        n: u16,
-    },
+    // I256 {
+    //     min: Option<Int256>,
+    //     max: Option<Int256>,
+    //     n: u16,
+    // },
     Choice {
         samples: Vec<String>,
         weights: Option<Vec<u32>>,
